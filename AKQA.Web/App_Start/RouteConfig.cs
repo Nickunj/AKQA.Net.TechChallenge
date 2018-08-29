@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace AKQA.Services
+namespace AKQA.Web
 {
     public class RouteConfig
     {
@@ -13,12 +13,11 @@ namespace AKQA.Services
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            // By default route the user to the Help area if accessing the base URI.
             routes.MapRoute(
-                "Help Area",
-                "",
-                new { controller = "Help", action = "Index" }
-            ).DataTokens = new RouteValueDictionary(new { area = "HelpPage" });
+                name: "Default",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
         }
     }
 }

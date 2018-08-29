@@ -1,0 +1,23 @@
+﻿@{
+    var apiEndPoint = @System.Configuration.ConfigurationManager.AppSettings["AKQA.Services.NumberWordConverter.EndPoint"];
+    var apiMethod = @System.Configuration.ConfigurationManager.AppSettings["CurrenyWordConvertMethod"]; 
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2></h2>
+        <p>
+            Name <input type="text" id="txtName" name="name" />
+            Numeric value <input type="number" min="0.00" step="0.01" id="txtNumericValue" name="numericValue"/>
+        </p>
+        <p>
+            <input type="button" class="btn btn-default" id="btnSubmit" value="Convert to word"/>
+        </p>
+    </div>
+</div>
+<input type="hidden" id="hdnEndPoint" value="@apiEndPoint@apiMethod"/>
+<div class="jumbotron">
+    <p class="lead" ><label id="strName"></label></p>
+    <p class="lead" ><label id="strWordConvertion"></label></p>
+</div>
